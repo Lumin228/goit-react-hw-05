@@ -6,7 +6,29 @@ import './App.css'
 import * as Yup from "yup";
 
 
+
+
+
+
+
 function App() {
+  const CONTACTSBOOK = "contactList";
+  const [contacts, setContacts] = useState(() => {
+    try {
+    const cast = JSON.parse(localStorage.getItem(CONTACTSBOOK))
+      return cast
+  }
+      catch
+        {
+          return [{id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+          {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+          {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+          {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},]}
+  })
+
+  const [contact, setContact] = useState("")
+
+  
 
   const initValues = {username: "", phone: ""}
 
@@ -15,16 +37,12 @@ function App() {
     phone: Yup.string().min(4, "Too Short!").max(50, "Too Long!").required("Required")
   });
   
+  useEffect(() => {
+    localStorage.setItem(CONTACTSBOOK, JSON.stringify(contacts));
+
+  }, [contacts]);
 
 
-  const [contacts, setContacts] = useState([
-    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-  ])
-
-  const [contact, setContact] = useState("")
 
   const search = (evt) => {
     setContact(evt.target.value)

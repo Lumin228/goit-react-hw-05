@@ -1,7 +1,17 @@
+import { Link } from "react-router-dom"
 
 
-export const Home = () => {
+export const Home = ({list}) => {
+  
     return (
-        <p>Home</p>
+        <ul>
+            {list.map(element => (
+        <li key={element.id}>
+          <Link to={`/movies/${element.id}`} state={{ movie: element }}>
+            <p>{element.original_title}</p>
+          </Link>
+        </li>
+      ))}
+        </ul>
     )
 }

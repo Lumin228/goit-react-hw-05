@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 
-export const Reviews = () => {
+const Reviews = () => {
     const location = useLocation()
     const info = location.state.reviews
     console.log(info);
@@ -21,3 +21,5 @@ export const Reviews = () => {
         </div>
     )
 }
+
+export default Reviews

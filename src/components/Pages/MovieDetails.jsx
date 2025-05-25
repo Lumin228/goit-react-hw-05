@@ -3,7 +3,7 @@ import { BackLink } from "./BackLink";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const location = useLocation()
     const movie = location.state.movie
     const backLinkHref = "/movies";
@@ -70,3 +70,5 @@ export const MovieDetails = () => {
       </main>
     )
 }
+
+export default MovieDetails

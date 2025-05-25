@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 
-export const Cast = () => {
+const Cast = () => {
     const location = useLocation()
     const info = location.state.cast
     console.log(info);
@@ -16,3 +16,5 @@ export const Cast = () => {
         </ul>
     )
 }
+
+export default Cast

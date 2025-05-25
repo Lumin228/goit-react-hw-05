@@ -9,4 +9,4 @@ const BackLink = ({ to, children }) => {
   );
 };
 
-export default BackLink
+export default BackLink;

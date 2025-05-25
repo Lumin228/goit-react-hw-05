@@ -6,11 +6,11 @@ import axios from "axios";
 const DOSTRUP = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZjM4NGU0YjI0MDRlZGU5YjYxMzVhZTBkMGZjZDExYiIsIm5iZiI6MTc0NjM1MzUzNy44MTUsInN1YiI6IjY4MTczZDgxMmIzODNhYTFjOTU3Yzg2MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lWiI1-TR0vvdobuSbjFmoeIDgx9Cp87XpaVn_FaF16M"
 const KEY = "cf384e4b2404ede9b6135ae0d0fcd11b";
 
-const Home = lazy(() => import('../Pages/Home'));
-const MovieDetails = lazy(() => import('../Pages/MovieDetails'));
-const Reviews = lazy(() => import('../Pages/Reviews'));
-const Cast = lazy(() => import('../Pages/Cast'));
-const Movies = lazy(() => import('../Pages/Movies'));
+const Home = lazy(() => import('../pages/Home'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+const Reviews = lazy(() => import('../pages/Reviews'));
+const Cast = lazy(() => import('../pages/Cast'));
+const Movies = lazy(() => import('../pages/Movies'));
 
 export const App = () => {
   const [startList, setStartList] = useState([]);

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Home = ({ list = [] }) => { // Добавляем значение по умолчанию
+export const Home = ({ list = [] }) => { // Добавляем значение по умолчанию
     return (
         <ul>
             {list.map(element => (

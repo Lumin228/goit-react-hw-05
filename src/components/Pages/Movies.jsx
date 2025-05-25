@@ -1,34 +1,45 @@
 import { Formik, Field, Form } from 'formik';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
+const Movies = ({ list = [], setQuery }) => { // Значение по умолчанию для list
+  return (
+    <div>
+      <h1>Search Film</h1>
 
-export const Movies = ({list, set}) => {    
-    return (
-        <div>
-    <h1>Search Film</h1>
-    <Formik
-      initialValues={{
-        search: '',
-      }}
-      onSubmit={(values) => {
-        set(values.search)
-      }}
-    >
-      <Form>
-        <Field id="searche" name="search" placeholder="search" />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+      <Formik
+        initialValues={{ search: '' }}
+        onSubmit={(values, { setSubmitting }) => {
+          setQuery(values.search.trim());
+          setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <Field
+              id="search"
+              name="search"
+              placeholder="Enter movie title"
+              autoComplete="off"
+            />
+            <button type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
 
-    <ul>
-    {list.map(element => (
-        <li key={element.id}>
-          <Link to={`/movies/${element.id}`} state={{ movie: element }}>
-            <p>{element.original_title}</p>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
-    )
-}
+      <ul>
+        {list.map((movie) => (
+          <li key={movie.id}>
+            <Link to={`/movies/${movie.id}`} state={{ movie }}>
+              {/* Добавляем проверку на наличие названия */}
+              <p>{movie.original_title || movie.title || 'No title'}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Movies;
